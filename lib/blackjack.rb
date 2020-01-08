@@ -19,7 +19,7 @@ def prompt_user
 end
 
 def get_user_input
-  user_input = gets.chomp
+  user_input =  gets.chomp
   # code #get_user_input here
 end
 
@@ -37,7 +37,7 @@ def initial_round
   # code #initial_round here
 end
 
-def hit?(card_total)
+def hit?(card_total, invalid_command)
   prompt_user
   user_input = get_user_input
   if user_input == "h"
@@ -45,7 +45,7 @@ def hit?(card_total)
   elsif user_input = "s"
     card_total
   else
-    invalid_command
+    puts invalid_command
   end
 end
 
@@ -56,16 +56,3 @@ end
 #####################################################
 # get every test to pass before coding runner below #
 #####################################################
-
-def runner
-  welcome
-  sleep 0.75
-  card_total = initial_round 
-  until card_total > 21
-    card_total = hit?(card_total)
-    display_card_total(card_total)
-  end
-  end_game(card_total)
-end
-    
-runner
